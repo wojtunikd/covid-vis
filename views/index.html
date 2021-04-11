@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Covid-19 Data Visualisation - By Population Age Structure</title>
+        <meta name="author" content="Damian Wojtunik">
+        <meta name="description" content="">
+        <meta name="keywords" content="HTML, CSS, JavaScript">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <meta name="theme-color" content="#000">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+        <link rel="shortcut icon" href="media/favicon.svg">
+        <link rel="stylesheet" href="styles/layout.css">
+        <link rel="stylesheet" href="styles/toggle.css">
+        <script src="scripts/d3.min.js"></script>
+        <script src="scripts/script.js"></script>
+    </head>
+    <body>
+        <nav>
+            <div class="title-logo">
+                <img src="media/world-bright.png">
+                <h1>Covid-19 Data Visualisation</h1>
+            </div>
+            <div class="nav-buttons">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Visualisations</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div>
+            <div class="title-area">
+                <h2>Relationship between the median age of a population and the number of Covid-19 deaths per million</h2>
+                <select id="data-menu">
+                    <option selected disabled>Choose the attribute...</option>
+                    <option>Test</option>
+                </select>
+            </div>
+            <div class="functional-area">
+                <div class="graph-area">
+                    <svg id="canvas">
+
+                    </svg>
+                </div>
+                <div class="info-area">
+                    <h3>Description</h3>
+                    <p class="graph-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <div class="user-option" id="names-option">
+                        <div class="option-icon">
+                            <label class="switch">
+                                <input type="checkbox" id="toggle-names">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <span class="option-label">Show country names</span>
+                    </div>
+                    <div class="user-option" id="summary-option">
+                        <div class="option-icon">
+                            <img src="media/list.svg" alt="Summary">
+                        </div>
+                        <span class="option-label">Preview data summary</span>
+                    </div>
+                    <div class="user-option" id="image-option">
+                        <div class="option-icon">
+                            <img src="media/image.svg" alt="Image">
+                        </div>
+                        <span class="option-label">Save as JPEG</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer></footer>
+    </body>
+</html>
