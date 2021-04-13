@@ -7,7 +7,7 @@
 
 body {
     background-color: var(--bg-colour);
-    padding: 4rem 0 0 0;
+    padding: 4rem 0;
     margin: 0;
     font-family: 'Lato', sans-serif;
     overflow-y: scroll;
@@ -74,9 +74,9 @@ nav {
 }
 
 footer {
-    margin-top: 0.5rem;
+    position: fixed;
     bottom: 0;
-    height: 3rem;
+    height: 2.5rem;
     width: 100%;
     background-color: var(--nav-colour);
     display: flex;
@@ -90,7 +90,7 @@ footer p {
     font-family: 'Playfair Display', serif;
     color: var(--bright-font-colour);
     margin: 0;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     text-align: center;
 }
 
