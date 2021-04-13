@@ -1,0 +1,38 @@
+circle {
+    cursor: help;
+}
+
+.mark-details {
+    position: absolute;
+    width: 40%;
+    border-radius: 0.2rem;
+    background: rgba(245, 248, 250, 0.84);
+    box-shadow: 3px 3px 6px -5px rgba(0, 0, 0, 0.75);
+    pointer-events: none;
+    opacity: 0;
+    font-size: 0.85rem;
+    padding: 0.6rem;
+    line-height: 1.2rem;
+}
+
+.country-name {
+    font-size: 0.5rem;
+    color: #999999;
+    transition: 0.1s ease-in-out;
+    display: none;
+}
+
+.density-mark {
+    filter: blur(3px);
+    cursor: default !important;
+}
+
+.legend-text {
+    font-size: 0.75rem;
+}
+
+@media (min-width: 768px) {
+    .mark-details {
+        width: 13%;
+    }
+}
