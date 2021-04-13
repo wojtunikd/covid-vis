@@ -3,6 +3,7 @@
         a) https://www.d3-graph-gallery.com/graph/scatter_basic.html
         b) https://observablehq.com/@d3/scatterplot-with-shapes
         c) http://www.d3noob.org/2013/01/adding-tooltips-to-d3js-graph.html
+        d) https://bl.ocks.org/curran/fea34ca9b3b8886e3ab8
 
 */
 
@@ -229,6 +230,7 @@ const createBarChart = (data, property) => {
         .domain(data.map(entry => entry.continent));
 
     const detailsField = d3.select("body")
+        .select(".graph-area")
         .append("div")
         .attr("class", "mark-details")
         .style("opacity", 0);
@@ -356,6 +358,7 @@ const createScatterplot = (data, property) => {
         .text("Deaths Per Million");
 
     const detailsField = d3.select("body")
+        .select(".graph-area")
         .append("div")
         .attr("class", "mark-details")
         .style("opacity", 0);
@@ -666,42 +669,49 @@ const handleMenuChange = event => {
     switch(option) {
         case "median":
             emptyParent(document.querySelector("svg"));
+            window.history.replaceState(null, null, `?vis=median`);
             document.querySelector(".title-area h2").innerText = "Relationship between the median age of a population and the number of Covid-19 deaths per million";
             document.querySelector(".graph-description").innerHTML = "This scatter plot investigates a possible correlation between the <b>median age</b> of the population and the Covid-19 mortality measures as <b>deaths per million</b>. Shapes represent continents, while colour saturation - cases per million. Hover over the mark to read the details. Toggle the trend line and country names using <i>button switches</i> below.";
             removeOrderOption();
             return loadDataForScatterplotMedian(false);
         case "agedOver60":
             emptyParent(document.querySelector("svg"));
+            window.history.replaceState(null, null, `?vis=agedOver60`);
             document.querySelector(".title-area h2").innerText = "Relationship between the proportion of population aged 60+ and the number of Covid-19 deaths per million";
             document.querySelector(".graph-description").innerHTML = "This scatter plot investigates a possible correlation between the <b>proportion of population aged 60+</b> of the population and the Covid-19 mortality measures as <b>deaths per million</b>. Shapes represent continents, while colour saturation - cases per million. Hover over the mark to read the details. Toggle the trend line and country names using <i>button switches</i> below.";
             removeOrderOption();
             return loadDataForScatterplotOver60(false);
         case "density-median":
             emptyParent(document.querySelector("svg"));
+            window.history.replaceState(null, null, `?vis=density-median`);
             document.querySelector(".title-area h2").innerText = "Relationship between the median age of a population and the number of Covid-19 deaths per million - Density";
             document.querySelector(".graph-description").innerHTML = "This scatter plot show the densities of marks when investigating correlation between the <b>median age</b> of the population and the Covid-19 mortality measures as <b>deaths per million</b>. The higher the colour intensity, the higher the density.";
             removeOrderOption();
             return loadDataForScatterplotMedian(true);
         case "density-over60":
             emptyParent(document.querySelector("svg"));
+            window.history.replaceState(null, null, `?vis=density-over60`);
             document.querySelector(".title-area h2").innerText = "Relationship between the proportion of population aged 60+ and the number of Covid-19 deaths per million - Density";
             document.querySelector(".graph-description").innerHTML = "This scatter plot show the densities of marks when investigating correlation between the <b>proportion of population aged 60+</b> of the population and the Covid-19 mortality measures as <b>deaths per million</b>. The higher the colour intensity, the higher the density.";
             removeOrderOption();
             return loadDataForScatterplotOver60(true);
         case "countries-median":
             emptyParent(document.querySelector("svg"));
+            window.history.replaceState(null, null, `?vis=countries-median`);
             document.querySelector(".title-area h2").innerText = "Top 15 Countries by Median Age";
             document.querySelector(".graph-description").innerHTML = "This bar chart presents the top fifteen countries by the <b>median age</b>. Bar colours represent continents. Toggle the order to ascending or descending using the <i>button switch</i> below.";
             appendOrderOption();
             return loadDataForBarMedian(-1, 15);
         case "countries-over60":
             emptyParent(document.querySelector("svg"));
+            window.history.replaceState(null, null, `?vis=countries-over60`);
             document.querySelector(".title-area h2").innerText = "Top 15 Countries by Proportion of People Aged Over 60";
             document.querySelector(".graph-description").innerHTML = "This bar chart presents the top fifteen countries by the <b>proportion of population aged 60+</b>. Bar colours represent continents. Toggle the order to ascending or descending using the <i>button switch</i> below.";
             appendOrderOption();
             return loadDataForBarOver60(-1, 15);
         case "countries-deaths":
             emptyParent(document.querySelector("svg"));
+            window.history.replaceState(null, null, `?vis=countries-deaths`);
             document.querySelector(".title-area h2").innerText = "Top 15 Countries by Covid-19 Deaths Per Million";
             document.querySelector(".graph-description").innerHTML = "This bar chart presents the top fifteen countries by the <b>Covid-19 deaths per million</b>. Bar colours represent continents. Toggle the order to ascending or descending using the <i>button switch</i> below.";
             appendOrderOption();
@@ -748,7 +758,7 @@ window.addEventListener("load", () => {
                 break;
         }
 
-        document.querySelector("#data-menu").removeEventListener("change");
+        document.querySelector("#data-menu").removeEventListener("change", handleMenuChange);
     } else {
         loadDataForScatterplotMedian(false);
     }
