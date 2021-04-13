@@ -73,6 +73,27 @@ nav {
     box-shadow: 0px 2px 4px -3px rgba(0, 0, 0, 0.75);
 }
 
+footer {
+    margin-top: 0.5rem;
+    bottom: 0;
+    height: 3rem;
+    width: 100%;
+    background-color: var(--nav-colour);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.75);
+}
+
+footer p {
+    font-family: 'Playfair Display', serif;
+    color: var(--bright-font-colour);
+    margin: 0;
+    font-size: 0.75rem;
+    text-align: center;
+}
+
 .title-logo {
     display: flex;
     flex-direction: row;
@@ -156,6 +177,21 @@ nav {
 
 .graph-description {
     min-height: 30%;
+}
+
+.sources {
+    padding: 1.5rem;
+}
+
+.sources p {
+    font-size: 0.65rem;
+    text-align: center;
+}
+
+.sources p a {
+    font-style: italic;
+    text-decoration: none;
+    color: var(--nav-colour);
 }
 
 .user-option {
