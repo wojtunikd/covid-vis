@@ -666,6 +666,9 @@ const handleMenuChange = event => {
     document.querySelector("#toggle-names").checked = false;
     document.querySelector("#toggle-trend").checked = false;
 
+    document.querySelector("#names-option .option-label").innerText = "Show country names";
+    document.querySelector("#trend-option .option-label").innerText = "Show trend line";
+
     switch(option) {
         case "median":
             emptyParent(document.querySelector("svg"));
