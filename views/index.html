@@ -11,7 +11,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
-        <link rel="shortcut icon" href="media/favicon.svg">
+        <link rel="shortcut icon" href="media/favicon.png">
         <link rel="stylesheet" href="styles/toggle.css">
         <link rel="stylesheet" href="styles/layout.css">
         <link rel="stylesheet" href="styles/scatterplot.css">
@@ -22,13 +22,13 @@
         <nav>
             <div class="title-logo">
                 <img src="media/world-bright.png">
-                <h1>Covid-19 Data Visualisation</h1>
+                <h1><a href="/">Covid-19 Data Visualisation</a></h1>
             </div>
             <div class="nav-buttons">
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="#">Visualisations</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/visualisations">Visualisations</a></li>
+                    <li><a href="/contact">Contact</a></li>
                 </ul>
             </div>
         </nav>
@@ -37,10 +37,13 @@
                 <h2>Relationship between the median age of a population and the number of Covid-19 deaths per million</h2>
                 <select id="data-menu">
                     <option disabled>Select the visualisation...</option>
-                    <option value="median">Median Age and Mortality</option>
-                    <option value="agedOver60">People Aged 60+ and Mortality</option>
+                    <option value="median">Median Age and Mortality (Correlation)</option>
+                    <option value="agedOver60">People 60+ and Mortality (Correlation)</option>
                     <option value="density-median">Median Age (Density)</option>
                     <option value="density-over60">People Aged 60+ (Density)</option>
+                    <option value="countries-median">Countries by Median Age</option>
+                    <option value="countries-over60">Countries by Population 60+</option>
+                    <option value="countries-deaths">Countries by Mortality</option>
                 </select>
             </div>
             <div class="functional-area">
@@ -51,7 +54,16 @@
                 </div>
                 <div class="info-area">
                     <h3>Description</h3>
-                    <p class="graph-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p class="graph-description">This scatter plot investigates a possible correlation between the <b>median age</b> of the population and the Covid-19 mortality measures as <b>deaths per million</b>. Shapes represent continents, while colour saturation - cases per million. Hover over the mark to read the details. Toggle the trend line and country names using <i>button switches</i> below.</p>
+                    <div class="user-option" id="trend-option">
+                        <div class="option-icon pointer">
+                            <label class="switch">
+                                <input type="checkbox" id="toggle-trend">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <span class="option-label">Show trend line</span>
+                    </div>
                     <div class="user-option" id="names-option">
                         <div class="option-icon pointer">
                             <label class="switch">
@@ -68,11 +80,11 @@
                         <span class="option-label">Preview data summary</span>
                         <input type="hidden" id="data-summary" value="">
                     </div>
-                    <div class="user-option pointer" id="image-option">
+                    <div class="user-option pointer" id="pdf-option">
                         <div class="option-icon">
-                            <img src="media/image.svg" alt="Image">
+                            <img src="media/pdf.svg" alt="PDF">
                         </div>
-                        <span class="option-label">Save as JPEG</span>
+                        <span class="option-label">Save as PDF</span>
                     </div>
                 </div>
             </div>

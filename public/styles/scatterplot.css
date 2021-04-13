@@ -28,7 +28,19 @@ circle {
 }
 
 .legend-text {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
+}
+
+.filled {
+    fill: url(#legendGradient);
+}
+
+.bar {
+    transition: 0.1s ease-in-out;
+}
+
+.bar:hover {
+    filter: brightness(80%);
 }
 
 @media (min-width: 768px) {
