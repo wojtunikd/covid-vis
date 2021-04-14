@@ -225,8 +225,9 @@ const createBarChart = (data, property) => {
         .style("text-anchor", "middle")
         .text(propertyName);
 
+    // Colour blind friendly colour palette (from Tableau)
     const colorScale = d3.scaleOrdinal()
-        .range(d3.schemePastel1)
+        .range(["#ffbc78", "#1170aa", "#7c8491", "#fc7d0c", "#d04f00"])
         .domain(data.map(entry => entry.continent));
 
     const detailsField = d3.select("body")
@@ -493,7 +494,7 @@ const createScatterplot = (data, property) => {
 
 const createDensityScatterplot = (data, property) => {
     const propertyName = property === "median" ? "Age Median" : "People Aged 60+ (%)";
-    const hue = property === "median" ? "rgba(196, 57, 29, 0.18)" : "rgba(9, 156, 51, 0.18)";
+    const hue = property === "median" ? "rgba(235, 93, 9, 0.18)" : "rgba(69, 80, 94, 0.18)";
 
     const margins = { top: 10, right: 30, bottom: 40, left: 60 };
     let width = 700 - margins.left - margins.right;

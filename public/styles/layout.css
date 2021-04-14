@@ -180,7 +180,7 @@ footer p {
 }
 
 .sources {
-    padding: 1.5rem;
+    padding: 0.5rem 1.5rem 1.5rem 1.5rem;
 }
 
 .sources p {
@@ -311,6 +311,27 @@ footer p {
 
 .vis-link:hover {
     transform: scale(1.05);
+}
+
+.colour-blind {
+    display: flex;
+    flex-direction: row;
+    max-height: 1rem;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 1rem 0 1rem;
+    margin-top: 0.5rem;
+    cursor: help;
+}
+
+.colour-blind img {
+    height: 1.5rem;
+    margin-right: 0.5rem;
+}
+
+.colour-blind p {
+    font-size: 0.75rem;
+    font-style: italic;
 }
 
 @media (min-width: 768px) {
